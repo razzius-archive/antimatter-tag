@@ -8,8 +8,10 @@ public class Redship : MonoBehaviour
 
     public Rigidbody2D body;
 
-    float horizontal = 0;
-    float vertical = 0;
+    float horizontalAccel = 0;
+    float verticalAccel = 0;
+    float horizontalVel = 0;
+    float verticalVel = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,11 +22,18 @@ public class Redship : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-        // TODO give the player some momentum
+        horizontalAccel = Input.GetAxis("Horizontal");
+        verticalAccel = Input.GetAxis("Vertical");
+
+        horizontalVel += horizontalAccel;
+        verticalVel += verticalAccel;
+
+        float newAngle = Mathf.Atan(verticalVel / (horizontalVel + .01f)) / Mathf.PI * 180 + 270f;
+ 	
+        transform.rotation = Quaternion.Euler(0, 0, newAngle);
+        
         // TODO cap the player's movement, so that the magnitude of velocity going
         // diagonally is no faster than going in a direction
-        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+        body.velocity = new Vector2(horizontalVel * runSpeed, verticalVel * runSpeed);
     }
 }
