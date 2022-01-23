@@ -75,9 +75,11 @@ public class Greenship : MonoBehaviour
                 blueness = 1f;
                 spriteRenderer.color = Color.blue;
                 body.velocity = body.velocity.normalized * maxSpeed * 10f;
+                /* Debug.Log("WOOOOOOOOOOOOOOOOOOOOOO"); */
                 energy--; 
             }
         }
+        /* Debug.Log(body.velocity); */
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
