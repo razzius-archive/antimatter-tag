@@ -16,6 +16,7 @@ public class Greenship : MonoBehaviour
     float energy = 10;
     float blueness = 0;
     bool spaceReset = true;
+    public Timer timer;
 
     public SpriteRenderer spriteRenderer;
 
@@ -82,6 +83,7 @@ public class Greenship : MonoBehaviour
         if (collision.gameObject.name == "spaceship_green")
         {
             Destroy(gameObject);
+            timer.Stop();
         }
         if (collision.gameObject.name == "Energy") {
             energy += 10;
