@@ -55,10 +55,6 @@ public class Greenship : MonoBehaviour
 
         body.velocity = velocities;
 
-        if (body.velocity != Vector2.zero) {
-            float angle = Mathf.Atan2(body.velocity.y, body.velocity.x) * Mathf.Rad2Deg - 90;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        }
         if (Input.GetKeyUp(KeyCode.Space)) {
             spaceReset = true;
         }
