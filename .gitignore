@@ -6,7 +6,7 @@
 /[Tt]emp/
 /[Oo]bj/
 # /[Bb]uild/ quick and dirty deploy :]
-/[Bb]uilds/
+!Build/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
