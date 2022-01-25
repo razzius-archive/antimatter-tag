@@ -7,7 +7,7 @@ public class AISpaceship : MonoBehaviour
     public GameObject target;
     public float maxSpeed;
     private float timeScale = 1f;
-    private float accelRatio = 1f / 30f;
+    private float accelRatio = 1f / 60f;
     Rigidbody2D body;
     public SpriteRenderer spriteRenderer;
 
@@ -26,14 +26,14 @@ public class AISpaceship : MonoBehaviour
 	    spriteRenderer.color = new Color(1f, 1f, 1f);
     	    return;
     	}
-    	
+
 	Vector2 diff = new Vector2(target.transform.position.x - transform.position.x, target.transform.position.y - transform.position.y);
 	float speed = timeScale;
 	if (diff.magnitude < 5) {
 	    spriteRenderer.color = new Color(1f, .7f, .7f);
 	    // Could be fun to make it accelerate in current direction
 	    // rather than still targeting the player
-	    speed = speed * .5f;	    
+	    speed = speed * .5f;
 	} else if (diff.magnitude < 1) {
 	    spriteRenderer.color = new Color(1f, .5f, .5f);
 	    return;
